@@ -1,0 +1,17 @@
+[Unit]
+Description=五楊不動產事務所網站
+After=network.target
+
+[Service]
+Type=simple
+User=wuyang
+Group=wuyang
+WorkingDirectory=/opt/wuyang
+EnvironmentFile=/opt/wuyang/wuyang.env
+ExecStart=/usr/bin/python3 /opt/wuyang/server/app.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
